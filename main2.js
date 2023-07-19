@@ -1,9 +1,9 @@
-let blockSize = 30;
+let boxSize = 30;
 let row = 25; 
 let col = 25; 
 let ctx;
-let snakeX = blockSize ;
-let snakeY = blockSize ;
+let snakeX = boxSize ;
+let snakeY = boxSize ;
 let VelocityX = 0;  
 let VelocityY = 0;  
 let snakeBody = [];
@@ -14,8 +14,8 @@ let speed = 5;
  
 window.onload = function () {
     let canvas = document.getElementById("GameScreen");
-    canvas.height = row * blockSize;
-    canvas.width = col * blockSize;
+    canvas.height = row * boxSize;
+    canvas.width = col * boxSize;
      ctx = canvas.getContext("2d");
     changePosition();
     document.addEventListener("keydown", changeDirection);
@@ -34,7 +34,7 @@ function main() {
  
   
     ctx.fillStyle = "pink";
-    ctx.fillRect(foodX, foodY, blockSize, blockSize);
+    ctx.fillRect(foodX, foodY, boxSize, boxSize);
  
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
@@ -50,11 +50,11 @@ function main() {
     }
  
     ctx.fillStyle = "red";
-    snakeX += VelocityX * blockSize ; 
-    snakeY += VelocityY * blockSize;  
-    ctx.fillRect(snakeX, snakeY, blockSize, blockSize);
+    snakeX += VelocityX * boxSize ; 
+    snakeY += VelocityY * boxSize;  
+    ctx.fillRect(snakeX, snakeY, boxSize, boxSize);
     for (let i = 0; i < snakeBody.length; i++) {
-        ctx.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);//2
+        ctx.fillRect(snakeBody[i][0], snakeBody[i][1], boxSize, boxSize);//2
     }
  
     for (let i = 0; i < snakeBody.length; i++) {
@@ -66,8 +66,8 @@ function main() {
 }
 function changePosition() {
   
-     foodX = Math.floor(Math.random() * 15) * blockSize;
-     foodY = Math.floor(Math.random() * 15) * blockSize;
+     foodX = Math.floor(Math.random() * 15) * boxSize;
+     foodY = Math.floor(Math.random() * 15) * boxSize;
 }
 
 function changeDirection(e) {
