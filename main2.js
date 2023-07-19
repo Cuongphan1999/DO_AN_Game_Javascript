@@ -38,7 +38,7 @@ function main() {
  
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]);
-        console.log(snakeBody)//1
+        console.log(snakeBody)
         changePosition();
     }
  
@@ -63,6 +63,12 @@ function main() {
             alert("Game Over");
         }
     }
+    
+    if (snakeX <= 0 || snakeX > col * boxSize || snakeY <= 0 || snakeY > row * boxSize) {
+        gameOver = true;
+        alert("Game Over");
+    }
+    
 }
 function changePosition() {
   
